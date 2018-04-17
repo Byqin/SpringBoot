@@ -1,0 +1,5 @@
+server:
+  port: 8395
+spring:
+  application:
+    name: springms-simple-quartz-cluster
