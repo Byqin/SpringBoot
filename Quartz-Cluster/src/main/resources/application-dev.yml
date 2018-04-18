@@ -1,0 +1,49 @@
+server:
+  port: 8395
+spring:
+  application:
+    name: springms-simple-quartz-cluster
+    
+# mysql 属性配置
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+    #useSSL=true true 表示需要秘钥， false表示不需要秘钥
+    url: jdbc:mysql://127.0.0.1:3306/test_job?useUnicode=true&characterEncoding=UTF-8&autoReconnect=true&useSSL=true
+    username: root
+    password: root
+
+#spring:
+#  datasource:
+#    type: com.alibaba.druid.pool.DruidDataSource
+#    driver-class-name: com.mysql.jdbc.Driver
+#    url: jdbc:mysql://127.0.0.1:3306/test_job?useUnicode=true&characterEncoding=UTF-8&autoReconnect=true
+#    username: root
+#    password: root
+#    initialSize: 5
+#    minIdle: 5
+#    maxActive: 20
+#    maxWait: 6000
+#    timeBetweenEvictionRunsMillis: 3600000
+#    minEvictableIdleTimeMillis: 1800000
+#    validationQuery: SELECT 1 FROM DUAL
+#    testWhileIdle: true
+#    testOnBorrow: true
+#    testOnReturn: true
+#    poolPreparedStatements: true
+#    maxPoolPreparedStatementPerConnectionSize: 20
+#    filters: stat,wall #,log4j
+#    connectionProperties: druid.stat.mergeSql=true;druid.stat.slowSqlMillis=5000
+  jpa:
+    hibernate:
+      #ddl-auto: create #ddl-auto:设为create表示每次都重新建表
+      #ddl-auto:设为update表示每次都不会重新建表
+      ddl-auto: update 
+    show-sql: true
+    
+logging:
+  level:
+    root: INFO
+    org.hibernate: INFO
+    org.hibernate.type.descriptor.sql.BasicBinder: TRACE
+    org.hibernate.type.descriptor.sql.BasicExtractor: TRACE
+    com.springms: DEBUG
